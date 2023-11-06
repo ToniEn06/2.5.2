@@ -18,10 +18,20 @@ public class  Board
     phrase = loadPhrase();
     setLetterValue();
 
-    System.out.println("Phrase: " + phrase); //temp test code
+    // System.out.println("Phrase: " + phrase); //temp test code
   }
   /* your code here - accessor(s) */
-  
+  public String getSolvedPhrase() {
+    return solvedPhrase;
+  }
+
+  public String getPhrase() {
+    return phrase;
+  }
+
+  public int getCurrentLetterVal() {
+    return currentLetterValue;
+  }
   /* your code here - mutator(s)  */
 
 
@@ -30,7 +40,7 @@ public class  Board
   {
     int randomInt = (int) ((Math.random() * 10) + 1) * 100;    
     currentLetterValue = randomInt;
-  }
+  } 
 
   public boolean isSolved(String guess)
   {
@@ -44,7 +54,7 @@ public class  Board
   private String loadPhrase()
   {
     String tempPhrase = "";
-    
+
     int numOfLines = 0;
     try 
     {
@@ -55,9 +65,9 @@ public class  Board
         numOfLines++;
       }
     } catch(Exception e) { System.out.println("Error reading or parsing phrases.txt"); }
-    
-		int randomInt = (int) ((Math.random() * numOfLines) + 1);
-    
+
+    int randomInt = (int) ((Math.random() * numOfLines) + 1);
+
     try 
     {
       int count = 0;
@@ -72,7 +82,7 @@ public class  Board
         }
       }
     } catch (Exception e) { System.out.println("Error reading or parsing phrases.txt"); }
-    
+
     for (int i = 0; i < tempPhrase.length(); i++)
     {
       if (tempPhrase.substring(i, i + 1).equals(" "))
@@ -84,7 +94,7 @@ public class  Board
         solvedPhrase += "_ ";
       }
     }  
-    
+
     return tempPhrase;
   }  
 
@@ -92,7 +102,7 @@ public class  Board
   {
     boolean foundLetter = false;
     String newSolvedPhrase = "";
-    
+
     for (int i = 0; i < phrase.length(); i++)
     {
       if (phrase.substring(i, i + 1).equals(guess))

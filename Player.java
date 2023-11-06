@@ -9,11 +9,11 @@ public class Player
 {
   /* your code here - attributes */
   private String name = "";
-  private double points;
+  private int points;
 
   /* your code here - constructor(s) */ 
   public Player() {
-    System.out.println("Please enter a name: ");
+    System.out.print("Please enter a name: ");
     Scanner sc = new Scanner(System.in);
     name = sc.nextLine();
     System.out.println("Welcome to the game, " + name + ".");
@@ -25,6 +25,16 @@ public class Player
     points = 0;
   }
   /* your code here - accessor(s) */ 
+  public String getName() {
+    return name;
+  }
 
+  public int getPoints() {
+    return points;
+  }
   /* your code here - mutator(s) */ 
+
+  public int setPoints(int points) {
+    return this.points += points;
+  }
 }
